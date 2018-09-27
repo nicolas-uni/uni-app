@@ -1,0 +1,170 @@
+// ********************************************************************************
+//  MAIN STYLE   MAIN STYLE   MAIN STYLE   MAIN STYLE   MAIN STYLE   MAIN STYLE
+// ********************************************************************************
+// Style de base, construit en mobile first.
+// Même si le style est écrit sur une seule et même page CSS. Il est construit de manière atomique
+// On retoruve toujours notre structure :
+//
+// - BASE ET VARIABLES
+// -- ELEMENTS (ensemble des éléments du site ex: boutons)
+// --- BLOCKS (groupe d'éléments qui composent les pages)
+// ********************************************************************************
+// ********************************************************************************
+//     -BASE   -BASE    -BASE    -BASE    -BASE    -BASE    -BASE    -BASE    -BASE
+// ********************************************************************************
+// ********************************************************************************
+@import 'components/variables.scss';
+@import 'components/reset.scss';
+
+.darkBackground {
+  background: $black;
+  li, i, p, h1, h2, h3, h4, h5, h6 {
+    color: $white;
+  }
+}
+
+//                  -FONTS
+// ---------------------------------------
+
+// Font face
+/*@font-face {
+    font-family: 'Gotham-Bold';
+    src: url(fonts/gotham-bold.ttf);
+}
+
+@font-face {
+    font-family: 'Gotham-Book';
+    src: url(fonts/gotham-book.ttf);
+}*/
+
+* {
+  font-family: $main-font-family;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  @extend %type-xl;
+}
+
+h2 {
+  @extend %type-l;
+}
+
+h3, h4, h5, h6 {
+  @extend %type-m;
+}
+
+a, p, div, span, li, ul, input, textarea {
+  @extend %type-s;
+}
+
+//                  -LAYOUT
+// ---------------------------------------
+
+.large-container {
+  > .row {
+    >div{
+      width:100%;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    @for $i from 1 through $grid-columns-s {
+      $percent: 100% /$grid-columns-s*$i;
+      > .col-s-#{$i} {
+        width: $percent;
+      }
+    }
+    @for $i from 1 through $grid-columns-l {
+      $percent: 100% /$grid-columns-l*$i;
+      > .col-l-#{$i} {
+        @include screen-xl {
+          width: $percent;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 16px;
+  > .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    >div{
+      width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns-l {
+      $percent: 100/$grid-columns-l*$i;
+      $g: $gutter-m - $gutter-m/$i;
+      > .col-l-#{$i} {
+        @include screen-xl{
+          @if $i == 6 {
+            width: 100%;
+          }
+          @else{
+            width: calc(#{$percent}% - (#{$g}));
+          }
+        }
+      }
+    }
+  }
+}
+
+@for $i from 1 through $grid-columns-l {
+  $percent: 100/$grid-columns-l*$i;
+  $g: $gutter-m - $gutter-m/$i;
+  > .coll-#{$i} {
+    @include screen-l {
+      width: calc(#{$percent}% - (#{$g}));
+      padding-right: #{$gutter-m};
+    }
+  }
+}
+
+//                -ANIMATIONS
+// ---------------------------------------
+
+.inView {
+  &--fadeIn {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .6s transform, .8s opacity;
+  }
+  &--fadeIn--viewed {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@include screen-l {
+
+  html {
+    font-size: 20px;
+  }
+
+  h2.bigTitle {
+    font-size: 6vw;
+    line-height: 5vw;
+  }
+
+  .row--full {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  //                  -LAYOUT
+  // ---------------------------------------
+
+}
+
+
+
+
+

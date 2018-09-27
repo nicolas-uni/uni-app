@@ -1,0 +1,178 @@
+//               -COULEURS
+// ---------------------------------------
+
+// Couleurs principales
+
+$main-color: #f1621f; // Couleur principale (orange)
+$secondary-color: #60c2c2; // Couleur secondaire (bleu)
+
+// Teintes principales
+
+$main-color-light: #f1621f;
+$secondary-color-light: #60c2c2;
+
+// Contrastes
+
+$lightgrey: #D9E4E4;
+$white: #FFF;
+$lightwhite: #E3E3E3;
+$black: #1e1e1e;
+$grey: #d8d8d8;
+
+// Couleurs assignés à des éléments html
+
+$link-color: $black;
+$body-bg: $white;
+
+
+//               -TRANSITIONS
+// ---------------------------------------
+
+$quick-transition: .2s ease;
+$main-transition: .4s ease;
+$slow-transition: .8s ease;
+$secondary-transition: .6s ease;
+
+
+
+
+//                 -SHADOWS
+// ---------------------------------------
+
+$shadow-xs: 0 3px 6px rgba(0,0,0,0.16);
+$shadow-s: 0 10px 20px rgba(0,0,0,0.19);
+$shadow-m: 0 14px 28px rgba(0,0,0,0.25);
+$shadow-l: 0 19px 38px rgba(0,0,0,0.30);
+
+
+
+
+//                -BREAKPOINTS
+// ---------------------------------------
+
+@mixin screen-s{
+	@media screen and (min-width: 375px) {@content}
+}
+@mixin screen-m{
+  @media screen and (min-width: 599px) {@content}
+}
+@mixin screen-l{
+  @media screen and (min-width: 899px) {@content}
+}
+@mixin screen-xl{
+  @media screen and (min-width: 1199px) {@content}
+}
+@mixin screen-xxl{
+  @media screen and (min-width: 1699px) {@content}
+}
+
+
+
+
+//                  -SPACES
+// ---------------------------------------
+
+$s-xs: 4px;
+$s-s: 8px;
+$s-m: 16px;
+$s-l: 24px;
+$s-xl: 32px;
+$s-xxl: 48px;
+
+//                  -LAYOUT
+// ---------------------------------------
+
+$container-max-width: 1400px;
+$grid-columns-l: 6;
+$grid-columns-s: 1;
+$gutter-s: $s-m;
+$gutter-m: $s-xl;
+
+
+
+
+
+
+//                  -FONTS
+// ---------------------------------------
+
+
+$main-font-family: 'Montserrat', Roboto, -apple-system, BlinkMacSystremFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+
+
+// Mixin typographique
+
+%type-s{
+    font-size: 16px;
+    line-height:20px;
+}
+
+%type-m{
+    font-size: 20px;
+    line-height:24px;
+    font-weight:500;
+}
+
+%type-l{
+    font-size: 24px;
+    line-height:28px;
+    font-weight:600;
+}
+
+%type-xl{
+    font-size: 24px;
+    line-height:28px;
+    font-weight:600;
+}
+
+
+@include screen-m{
+  %type-s{
+    font-size: 18px;
+    line-height:24px;
+  }
+
+  %type-m{
+    font-size: 21px;
+    line-height:28px;
+    font-weight:500;
+  }
+
+  %type-l{
+    font-size: 24px;
+    line-height:32px;
+    font-weight:600;
+  }
+
+  %type-xl{
+    font-size: 32px;
+    line-height:40px;
+    font-weight:600;
+  }
+}
+
+@include screen-xl{
+  %type-s{
+    font-size: 18px;
+    line-height:24px;
+  }
+
+  %type-m{
+    font-size: 26px;
+    line-height:32px;
+    font-weight:500;
+  }
+
+  %type-l{
+    font-size: 32px;
+    line-height:40px;
+    font-weight:600;
+  }
+
+  %type-xl{
+    font-size: 42px;
+    line-height:56px;
+    font-weight:600;
+  }
+}
+

@@ -1,0 +1,33 @@
+<template>
+
+</template>
+
+<script>
+  export default {
+    name: "InputBasic"
+  }
+</script>
+
+<style scoped lang="scss">
+  @import '../../assets/components/variables';
+
+  .input {
+    input, textarea {
+      background: transparent;
+      padding: 0;
+      border-width: 0;
+      height: $s-xl;
+      width: 100%;
+      border-bottom: 1px solid $grey;
+      &:focus {
+        outline: none;
+      }
+    }
+    &.input--focus {
+      > input, textarea {
+        border-bottom: 1px solid $main-color;
+      }
+    }
+  }
+
+</style>
